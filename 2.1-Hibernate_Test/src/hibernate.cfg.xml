@@ -1,0 +1,57 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd ">
+
+        
+<hibernate-configuration>
+
+    <session-factory>
+    
+        <!-- JDBC Database connection settings -->
+    	<!-- Knows that the data type is Oracle link java by DB oracle using jar file ojdbc8.jar -->
+        <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+        
+        <!-- Connect to the database, the server containing the database, the port, the Service Name, 
+        	or the Pluggable Database Name (PDB) you want to connect to.-->
+        <property name="connection.url">jdbc:oracle:thin:@//localhost:1521/orclpdb</property>
+        
+        <!-- Username (Oracle HR schema) -->
+        <property name="connection.username">hr</property>
+        
+        <!-- Password -->
+        <property name="connection.password">hr</property>
+        
+        <!-- Tread to create Hibernate Session  -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+
+		<!-- show sql query to appear sql query on Console/Logs -->
+        <property name="show_sql">true</property>
+        
+        <!-- create -->
+        <!-- Every time you run the application, Hibernate drops all tables (deletes them) and recreates them from scratch.
+			Useful for testing only.-->
+			
+		<!-- update -->
+		<!-- Hibernate compares entities (classes) with tables and creates an Alter Table or Create Table if one is missing. 
+			Convenient for development (add a new column in the code → it is added to the table). -->
+		
+		<!-- create-drop -->
+		<!-- Like create (it performs a drop + create at the start).
+			However, it also performs a drop for all tables when the application is shut down.
+			This is useful if you want to run a quick test without leaving any data behind.-->
+		
+		<!--validate -->
+		<!-- Verifies that the schema in the database is compatible with the entities.
+			If there is a discrepancy, it throws an error.
+			It does not perform a Create or Update operation.-->
+			
+		<!-- none (or do not set the feature at all)-->
+		<!-- Hibernate will not interfere with creating or modifying tables. -->
+		
+		<!-- This property tells Hibernate how to handle the database schema (tables). -->
+		<property name="hbm2ddl.auto">create</property> 
+	
+    </session-factory>
+
+</hibernate-configuration>
