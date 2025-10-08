@@ -44,6 +44,11 @@ public class EmployeeController {
     public List<Employee> getEmployeesByIds(@RequestParam List<Long> ids) {
         return employeeService.getEmployeesByIds(ids);
     }
+    
+    @GetMapping("/name")
+    public List<Employee> getEmployeesName(@RequestParam String name) {
+        return employeeService.findByNameStartsWith(name);
+    }
 
     // ---------- POST ----------
     // Add one employee

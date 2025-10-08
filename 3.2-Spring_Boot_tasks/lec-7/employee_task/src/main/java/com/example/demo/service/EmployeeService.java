@@ -35,4 +35,12 @@ public interface EmployeeService {
 	// api to delete employee By List of ID
 	void removeEmployeesbyIds(List<Long> ids);
 	
+	// api to search about employee by name like 'ahmed%'
+	List<Employee> findByNameStartsWith(String nameStr);
+	
+	// Contains == LIKE %keyword%
+	// StartsWith == LIKE keyword%
+	// EndsWith == LIKE %keyword
+	// findByNameIgnoreCaseContains(String keyword) == lower(name) like lower('%keyword%')
+	
 }

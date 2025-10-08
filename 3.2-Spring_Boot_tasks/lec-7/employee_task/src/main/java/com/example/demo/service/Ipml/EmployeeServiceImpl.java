@@ -122,6 +122,14 @@ public class EmployeeServiceImpl implements EmployeeService{
 		employeeRepository.deleteAllById(ids);
 		
 	}
+
+	@Override
+	public List<Employee> findByNameStartsWith(String nameStr) {
+		if (nameStr == null || nameStr.isEmpty()) {
+	        throw new IllegalArgumentException("name must not be empty");
+	    }
+		return employeeRepository.findByNameStartsWith(nameStr);
+	}
 	
 	
 
